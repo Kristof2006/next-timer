@@ -13,9 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div className="flex flex-col gap-2 m-2 mx-4">
         <Link href="/">Home</Link>
         <Link href="/pomodoro">Pomodoro</Link>
         <Link href="/stopper">Stopper</Link>
+        </div>
         {children}
         </body>
     </html>
