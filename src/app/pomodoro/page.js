@@ -8,8 +8,8 @@ export default function Pomodoro() {
       {
         colors.map((color, index) => {
           return (
-            <div className={`${color} rounded-lg p-2`}>
-              <PomodoroClient key={index}/>
+            <div key={index} className={`${color} rounded-lg p-2`}>
+              <PomodoroClient />
             </div>
           )
         })
