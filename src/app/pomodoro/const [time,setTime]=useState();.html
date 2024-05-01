@@ -1,0 +1,19 @@
+const [time,setTime]=useState();
+var timer;
+useEffect(()=>{
+  timer = setInterval(()=>{
+    setTime(time+1);
+  },1000)
+  return ()=> clearInterval(timer);
+});
+
+const restart=() => {
+  setTime(0);
+}
+const stop=() => {
+clearInterval(timer);
+}
+<h1>{time}</h1>
+
+<button onClick={restart}>Restart</button>
+<button onClick={stop}>Stop</button>

@@ -1,9 +1,11 @@
-import Image from "next/image";
+import StopperClient from "@/components/StopperClient";
 
-export default function Home() {
+export default function Stopper() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Stopper
-    </main>
+
+            <div className="rounded-lg p-2">
+              <StopperClient />
+            </div>
   );
 }
+

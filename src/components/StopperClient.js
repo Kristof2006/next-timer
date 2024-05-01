@@ -2,24 +2,18 @@
 
 import { useEffect, useState } from "react";
 
-export default function PomodoroClient() {
-    const [time, setTime] = useState(20);
+export default function StopperClient() {
+    const [time, setTime] = useState(0);
     var timer;
     useEffect(() => {
         timer = setInterval(() => {
-            setTime(time - 1);
-            if(time===0) {
-                clearInterval(timer);
-            }
+            setTime(time + 1);
         }, 1000)
-        if (time ===0) {
-            clearInterval(timer);
-        }
         return () => clearInterval(timer);
     });
 
     const restart = () => {
-        setTime(20);
+        setTime(0);
     }
     const stop = () => {
         clearInterval(timer);
@@ -28,15 +22,13 @@ export default function PomodoroClient() {
         if (timer != null) {
             clearInterval(timer);
         }
-        if(time != 0) {
-            timer = setInterval(() => {
-                setTime(time - 1);
-            }, 1000)
-        }
+        timer = setInterval(() => {
+            setTime(time + 1);
+        }, 1000)
         
     }
     return (
-        <div className="flex flex-col text-center bg-gray-300 rounded-lg p-3 gap-4 items-center">
+        <div className="flex flex-col items-center text-center bg-gray-300 rounded-lg p-3 gap-4">
             <h1 className="font-bold text-5xl bg-white rounded-full p-2">{time}</h1>
             <div className="flex flex-row gap-4">
             <button onClick={restart} className="bg-yellow-500 hover:bg-yellow-700 text-white rounded-lg px-4 font-bold py-2">Restart</button>
